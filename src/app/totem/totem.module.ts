@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MnFullpageModule } from 'ngx-fullpage';
 
 import { TotemRouting, TotemComponents } from './totem.routing';
 
@@ -8,7 +8,7 @@ import { TotemRouting, TotemComponents } from './totem.routing';
     declarations: TotemComponents,
     imports: [
         TotemRouting,
-        NgbModule
+        MnFullpageModule.forRoot()
     ],
     providers: [],
     bootstrap: TotemComponents
