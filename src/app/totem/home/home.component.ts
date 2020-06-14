@@ -51,26 +51,28 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
 
     render = [
         {
-            title: 'qual é o número do seu CPF?',
+            title: '<strong>qual é o número do seu CPF?</strong>',
             subTitle: 'pedimos esse dado para que suas informações de saúde sejam armazenadas com segurança nos sistemas da CCR.',
             input: 'document',
             img: '/assets/imgs/cnh.jpg',
             text: 'você pode achar o número na sua carteira de motorista :)',
             layout: this.keyboardLayouts.numeric,
             keyboard: null,
+            type: 'keyboard',
             placeholder: '123.456.789-00',
         },
         {
-            title: 'qual é o seu nome?',
+            title: '<strong>qual é o seu nome?</strong>',
             subTitle: '(não precisa ser completo)',
             input: 'name',
             text: 'você pode achar o número na sua carteira de motorista :)',
             layout: this.keyboardLayouts.default,
             keyboard: null,
             placeholder: '',
+            type: 'keyboard',
         },
         {
-            title: 'qual é o sua data de nascimento?',
+            title: '<strong>qual é o sua data de nascimento?</strong>',
             subTitle: '',
             input: 'birth',
             img: null,
@@ -78,7 +80,30 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
             layout: this.keyboardLayouts.numeric,
             keyboard: null,
             placeholder: '',
+            type: 'keyboard',
         },
+        {
+            title: 'qual é o seu sexo biológico?',
+            subTitle: '',
+            input: 'sex',
+            img: null,
+            text: null,
+            layout: null,
+            keyboard: null,
+            placeholder: '',
+            type: 'option',
+        },
+        {
+            title: 'Precisamos saber sua altura aproximada em metros.',
+            subTitle: '',
+            input: 'height',
+            img: null,
+            text: null,
+            layout: this.keyboardLayouts.numeric,
+            keyboard: null,
+            placeholder: '',
+            type: 'keyboard',
+        }
     ]
     constructor() {
         this.config = {
@@ -94,7 +119,9 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         for (let index = 0; index < this.render.length; index++) {
             const element = this.render[index];
-            this.enableKeyboard(element.input, element.layout);
+            if (element.layout !== null) {
+                this.enableKeyboard(element.input, element.layout);
+            }
         }
     }
 
@@ -117,6 +144,14 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     onChange = (inputName: string, input: string) => {
         if (this.form.hasOwnProperty(inputName)) {
             this.form[inputName] = input;
+            if (inputName == 'name') {
+                const searchSting = 'height';
+                this.render.forEach((item, index) => {
+                    if (item.input === searchSting) {
+                        this.render[index].title = `<strong>${input}</strong>, precisamos saber sua altura aproximada em metros.`;
+                    }
+                })
+            }
         }
     };
 
@@ -155,4 +190,9 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     hasBack(index: number) {
         return (index > 0);
     }
+
+    hasItemType(type: string, result: string) {
+        return type === result;
+    }
+
 }
