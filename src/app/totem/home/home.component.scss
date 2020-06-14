@@ -1,35 +1,35 @@
 ::ng-deep {
     ::-webkit-input-placeholder {
         /* WebKit, Blink, Edge */
-        color: #e8e8e8 !important;
+        color: #000 !important;
     }
     :-moz-placeholder {
         /* Mozilla Firefox 4 to 18 */
-        color: #e8e8e8 !important;
+        color: #000 !important;
         opacity: 1;
     }
     ::-moz-placeholder {
         /* Mozilla Firefox 19+ */
-        color: #e8e8e8 !important;
+        color: #000 !important;
         opacity: 1;
     }
     :-ms-input-placeholder {
         /* Internet Explorer 10-11 */
-        color: #e8e8e8 !important;
+        color: #000 !important;
     }
     ::-ms-input-placeholder {
         /* Microsoft Edge */
-        color: #e8e8e8 !important;
+        color: #000 !important;
     }
 
     ::placeholder {
         /* Most modern browsers support this now. */
-        color: #e8e8e8 !important;
+        color: #000 !important;
         font-size: 30px !important;
     }
 
     label {
-        color: white !important;
+        color: black !important;
         font-size: 30px !important;
     }
 
@@ -43,10 +43,10 @@
     input,
     select,
     textarea {
-        color: white !important;
+        color: black !important;
         font-size: 60px !important;
-        border-bottom: 1px solid white !important;
-        box-shadow: 0 1px 0 0 white !important;
+        border-bottom: 1px solid black !important;
+        box-shadow: 0 1px 0 0 black !important;
     }
 
     .project-pageslide-bottom {
@@ -58,7 +58,7 @@
     }
 
     .fa-lg {
-        color: white;
+        color: black;
         font-size: 5.33333em !important;
     }
 
@@ -88,5 +88,33 @@
     .spinner-border {
         width: 7rem !important;
         height: 7rem !important;
+    }
+
+    .btn {
+        width: 25% !important;
+    }
+
+    .btn-warning {
+        background-color: #fcc300 !important;
+    }
+
+    .btn-outline-danger {
+        color: #9e260d !important;
+        border-color: #9e260d !important;
+    }
+
+    .text-danger {
+        color: #9e260d !important;
+    }
+
+    .bg-danger {
+        background-color: #9e260d !important;
+        color: white;
+    }
+
+    .card {
+        border-radius: 16px !important;
+        border: solid 2px #9e260d;
+        background-color: #ffffff;
     }
 }

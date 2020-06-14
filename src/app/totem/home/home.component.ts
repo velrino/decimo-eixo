@@ -57,8 +57,8 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
 
     render = [
         {
-            title: '<strong>qual é o número do seu CPF?</strong>',
-            subTitle: 'pedimos esse dado para que suas informações de saúde sejam armazenadas com segurança nos sistemas da CCR.',
+            title: '<strong>Qual é o número do seu CPF?</strong>',
+            subTitle: 'Pedimos esse dado para que suas informações de saúde sejam armazenadas com segurança nos sistemas da CCR.',
             input: 'document',
             img: '/assets/imgs/cnh.jpg',
             text: 'você pode achar o número na sua carteira de motorista :)',
@@ -158,7 +158,7 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
             syncInstanceInputs: true,
             inputName,
             display: {
-                '{bksp}': `<i class='fas fa-backspace'></i>`,
+                '{bksp}': `apagar`,
                 '{space}': 'espaço',
                 '{shift}': '<i class="fas fa-arrow-up"></i>',
             },

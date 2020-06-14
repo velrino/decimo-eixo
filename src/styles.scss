@@ -2,11 +2,19 @@
 
 /* Importing Bootstrap SCSS file. */
 // @import '~bootstrap/scss/bootstrap';
-@import '~bootstrap-material-design/scss/bootstrap-material-design';
-@import '~simple-keyboard/build/css/index.css';
-@import '@fortawesome/fontawesome-free/css/all.min.css';
-@import 'https://fonts.googleapis.com/css2?family=Open+Sans&display=swap';
+@import "~bootstrap-material-design/scss/bootstrap-material-design";
+@import "~simple-keyboard/build/css/index.css";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap";
 
 body {
-    font-family: 'Open Sans', sans-serif !important;
+    font-family: "Open Sans", sans-serif !important;
+    background-color: transparent !important;
+}
+
+html {
+    background: url(/assets/imgs/wallpaper.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
 }
