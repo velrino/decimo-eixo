@@ -17,11 +17,27 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <div *ngIf="hasItemType(item.type, 'keyboard')" class="simple-keyboard keyboard-{{item.input}}">
+                        <div class="col-lg-12" *ngIf="hasItemType(item.type, 'keyboard')">
+                            <div class="simple-keyboard keyboard-{{item.input}}">
                             </div>
-
                         </div>
+                        <div class="col-lg-6 mt-5" *ngIf="hasItemType(item.type, 'sex-option')">
+                            <div class="card text-center" (click)="sexOptionResult(true)"
+                                [ngClass]="{'bg-success text-white': form.sex === true}">
+                                <div class="card-body">
+                                    <h3>masculino</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mt-5" *ngIf="hasItemType(item.type, 'sex-option')">
+                            <div class="card text-center" (click)="sexOptionResult(false)"
+                                [ngClass]="{'bg-success text-white': form.sex === false}">
+                                <div class="card-body">
+                                    <h3>feminino</h3>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-md-3 mt-5 ml-5">

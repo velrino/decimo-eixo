@@ -91,7 +91,7 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
             layout: null,
             keyboard: null,
             placeholder: '',
-            type: 'option',
+            type: 'sex-option',
         },
         {
             title: 'Precisamos saber sua altura aproximada em metros.',
@@ -195,4 +195,7 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
         return type === result;
     }
 
+    sexOptionResult(value: boolean) {
+        this.form.sex = value;
+    }
 }
