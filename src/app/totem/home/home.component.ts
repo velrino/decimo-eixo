@@ -145,6 +145,28 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
             type: 'keyboard',
             placeholder: '',
         },
+        {
+            title: 'Vamos checar seu <strong>peso, IMC e temperatura corporal</strong>',
+            subTitle: 'fique com os pés em cima da balança e aproxime sua testa a 15 cm do sensor',
+            input: 'content-loading-imc',
+            icon: 'spinner-border text-dark',
+            vector: '/assets/imgs/imc.png',
+            text: null,
+            layout: null,
+            keyboard: null,
+            type: 'content-loading',
+        },
+        {
+            title: null,
+            subTitle: '',
+            input: 'nps',
+            img: null,
+            text: null,
+            layout: null,
+            keyboard: null,
+            placeholder: '',
+            type: 'nps',
+        },
     ]
     constructor(private modalService: NgbModal) {
         this.config = {

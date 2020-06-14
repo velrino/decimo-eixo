@@ -78,7 +78,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-lg-12" *ngIf="hasItemType(item.type, 'keyboard')">
+                        <div class="col-lg-12" *ngIf="hasItemType(item.type, 'keyboard') || hasItemType(item.type, 'content-loading')">
                             <h1 class="text-danger"  [innerHTML]="item.title"></h1>
                             <h4 class="text-dark">{{ item.subTitle }}</h4>
                             <div class="input-group mb-3" *ngIf="hasItemType(item.type, 'keyboard')">
@@ -94,6 +94,18 @@
                         <div class="col-lg-12" *ngIf="hasItemType(item.type, 'keyboard')">
                             <div class="simple-keyboard keyboard-{{item.input}}">
                             </div>
+                        </div>
+                        <div class="col-lg-12" *ngIf="hasItemType(item.type, 'content-loading')">
+                            <div class="d-flex align-items-center mt-5">
+                                <div class="p-2 bd-highlight">
+                                    <div *ngIf="item.icon !== null" class="{{item.icon}}" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                                <div class="p-2 bd-highlight text-left"><h3 class="font-weight-bold">aguarde… fazendo medição</h3></div>
+                              </div>
+
+                            
                         </div>
                         <div class="col-lg-6 mt-5" *ngIf="hasItemType(item.type, 'sex-option')">
                             <div class="card text-center card-option" (click)="sexOptionResult(true)"
@@ -121,9 +133,9 @@
 
                     </div>
                 </div>
-                <div class="col-md-3 mt-5 ml-5" *ngIf="item.img || item.text">
+                <div class="col-md-3 mt-5 ml-5">
 
-                    <div class="card">
+                    <div class="card" *ngIf="item.img || item.text">
                         <div class="card-header bg-danger">
                             LEMBRE-SE
                         </div>
@@ -132,6 +144,8 @@
                         </div>
                         <img class="card-img-top p-2" [src]="item.img">
                     </div>
+
+                    <img [src]="item.vector" height="500">
 
                 </div>
             </div>
