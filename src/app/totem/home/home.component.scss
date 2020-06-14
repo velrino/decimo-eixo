@@ -1,0 +1,51 @@
+::ng-deep {
+    ::-webkit-input-placeholder {
+        /* WebKit, Blink, Edge */
+        color: #e8e8e8 !important;
+    }
+    :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: #e8e8e8 !important;
+        opacity: 1;
+    }
+    ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: #e8e8e8 !important;
+        opacity: 1;
+    }
+    :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #e8e8e8 !important;
+    }
+    ::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: #e8e8e8 !important;
+    }
+
+    ::placeholder {
+        /* Most modern browsers support this now. */
+        color: #e8e8e8 !important;
+        font-size: 30px !important;
+    }
+
+    label {
+        color: white !important;
+        font-size: 30px !important;
+    }
+
+    .form-control:invalid,
+    .form-group.is-focused,
+    .form-control {
+        background-image: linear-gradient(to top, #ffffff 2px, rgba(213, 0, 0, 0) 2px),
+            linear-gradient(to top, rgba(0, 0, 0, 0.26) 1px, rgba(0, 0, 0, 0) 1px) !important;
+    }
+
+    input,
+    select,
+    textarea {
+        color: white !important;
+        font-size: 60px !important;
+        border-bottom: 1px solid white !important;
+        box-shadow: 0 1px 0 0 white !important;
+    }
+}
