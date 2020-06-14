@@ -111,9 +111,22 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
             type: 'modal',
         },
         {
-            title: null,
-            subTitle: '',
+            title: 'Parabéns por iniciar sua jornada pela saúde!',
+            subTitle: 'Só um momento, estamos criando seu perfil para sua segurança…',
             input: 'loading',
+            icon: 'spinner-border text-dark',
+            img: null,
+            text: null,
+            layout: null,
+            keyboard: null,
+            placeholder: '',
+            type: 'loading',
+        },
+        {
+            title: 'TUDO PRONTO!',
+            subTitle: 'Vamos lá.',
+            input: 'loading',
+            icon: null,
             img: null,
             text: null,
             layout: null,
@@ -125,13 +138,13 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
             title: 'Precisamos saber sua altura aproximada em metros.',
             subTitle: '',
             input: 'height',
-            img: null,
-            text: null,
+            img: '/assets/imgs/carteirinha@3x.jpg',
+            text: 'você pode achar o número na sua carteira de motorista :)',
             layout: this.keyboardLayouts.numeric,
             keyboard: null,
-            placeholder: '',
             type: 'keyboard',
-        }
+            placeholder: '',
+        },
     ]
     constructor(private modalService: NgbModal) {
         this.config = {
@@ -144,15 +157,20 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     ngOnInit() { }
 
     ngAfterViewInit() {
+        this.keyboads();
+    }
+
+    keyboads() {
         for (let index = 0; index < this.render.length; index++) {
             const element = this.render[index];
-            if (element.layout !== null) {
+            if (element.type === 'keyboard') {
                 this.enableKeyboard(element.input, element.layout);
             }
         }
     }
 
     enableKeyboard(inputName: string, layout: any) {
+        console.log(inputName)
         new Keyboard(`.keyboard-${inputName}`, {
             layout,
             syncInstanceInputs: true,
@@ -213,6 +231,8 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
             this.openModal(this.content);
         } else if (this.isLoading()) {
             setTimeout(() => this.next(this.actualSlide), 2000);
+        } else {
+            this.keyboads();
         }
     }
 
