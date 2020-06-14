@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
 
 import { DashboardRouting, DashboardComponents } from './dashboard.routing';
 
@@ -7,7 +8,8 @@ import { DashboardRouting, DashboardComponents } from './dashboard.routing';
     declarations: DashboardComponents,
     imports: [
         DashboardRouting,
-        NgbModule
+        NgbModule,
+        CommonModule
     ],
     providers: [],
     bootstrap: DashboardComponents

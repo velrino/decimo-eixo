@@ -1,1 +1,28 @@
-HOME dashboards
+<div class="container bg-primary">
+  <img src="/assets/imgs/onboarding.png" class="img" height="auto" />
+</div>
+
+
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col-8 header">
+      Bem-vindo ao app
+      Estrada para Saúde,
+      caminhoneiro!
+      <hr class="bg-warning hr-line">
+    </div>
+    <div class="col-12">
+      <strong>Uma iniciativa da CCR concessionárias</strong> para trazer atendimento de saúde mais próximo de você.
+      <strong>Aqui você pode:</strong>
+    </div>
+  </div>
+  <div class="d-flex align-items-center bd-highlight mb-3 pl-2 pr-2" *ngFor="let item of list">
+    <div class="pr-4 bd-highlight">
+      <i class="{{item.icon}} icon-item-list"></i>
+    </div>
+    <div class="bd-highlight" [innerHTML]="item.text">Flex item</div>
+  </div>
+  <p class="font-weight-bold mt-5 mb-5">E tudo isso é gratuito para você.</p>
+  <button type="button" class="btn btn-raised btn-warning btn-block text-dark rounded">primeiro acesso ao app</button>
+  <button type="button" class="btn btn-raised btn-link btn-block border border-dark rounded">ainda não tenho cadastro</button>
+</div>

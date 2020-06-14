@@ -230,7 +230,6 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     }
 
     enableKeyboard(inputName: string, layout: any) {
-        console.log(inputName)
         new Keyboard(`.keyboard-${inputName}`, {
             layout,
             syncInstanceInputs: true,

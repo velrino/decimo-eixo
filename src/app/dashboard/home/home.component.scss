@@ -1,0 +1,46 @@
+.fill {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-image: url("/assets/imgs/onboarding.png");
+}
+
+.container.bg-primary {
+    width: 100%;
+    // height:60px;
+    background-color: #006bbb;
+    overflow: hidden;
+}
+.img {
+    width: 100%;
+}
+
+.header {
+    color: #9e260d;
+    font-size: 24px;
+    font-weight: bold;
+}
+::ng-deep {
+    .hr-line {
+        height: 6px !important;
+        background-color: #fbc300 !important;
+    }
+
+    .icon-item-list {
+        font-size: 32px !important;
+        color: #9e260d !important;
+    }
+
+    .btn-warning {
+        background-color: #fbc300 !important;
+        color: black;
+    }
+
+    .btn {
+        border-radius: 10px !important;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        font-weight: bold;
+        margin-bottom: 10%;
+    }
+}
