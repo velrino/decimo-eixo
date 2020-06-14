@@ -64,16 +64,19 @@
 
     .simple-keyboard {
         bottom: 0 !important;
-        padding-left: 15%;
-        padding-right: 15%;
         padding-top: 2%;
         padding-bottom: 2%;
         width: 100%;
-        position: fixed !important;
+        // position: fixed !important;
         z-index: 999999999999999 !important;
     }
 
     .hg-theme-default .hg-button {
         height: 50px !important;
+        font-size: 30px !important;
+    }
+
+    .hg-theme-default {
+        background-color: transparent;
     }
 }
