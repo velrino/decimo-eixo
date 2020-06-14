@@ -1,0 +1,24 @@
+::ng-deep {
+    .hr-line {
+        height: 6px !important;
+        background-color: #fbc300 !important;
+    }
+
+    .icon-item-list {
+        font-size: 32px !important;
+        color: #9e260d !important;
+    }
+
+    .btn-warning {
+        background-color: #fbc300 !important;
+        color: black;
+    }
+
+    .btn {
+        border-radius: 10px !important;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        font-weight: bold;
+        margin-bottom: 10%;
+    }
+}
