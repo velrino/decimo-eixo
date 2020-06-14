@@ -111,6 +111,17 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
             type: 'modal',
         },
         {
+            title: null,
+            subTitle: '',
+            input: 'loading',
+            img: null,
+            text: null,
+            layout: null,
+            keyboard: null,
+            placeholder: '',
+            type: 'loading',
+        },
+        {
             title: 'Precisamos saber sua altura aproximada em metros.',
             subTitle: '',
             input: 'height',
@@ -125,14 +136,12 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     constructor(private modalService: NgbModal) {
         this.config = {
             licenseKey: 'YOUR LICENSE KEY HERE',
-            // anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
             menu: '#menu',
             navigation: false,
         };
     }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
 
     ngAfterViewInit() {
         for (let index = 0; index < this.render.length; index++) {
@@ -174,9 +183,6 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     };
 
     onKeyPress = (button: string) => {
-        /**
-         * If you want to handle the shift and caps lock buttons
-         */
         if (button === "{shift}" || button === "{lock}") this.handleShift();
     };
 
@@ -192,17 +198,21 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     back(index: number) {
         this.actualSlide = (index - 1);
         this.fullpage_api.moveSectionUp();
-        if (this.isModal()) {
-            this.openModal(this.content);
-        };
+        this.verify();
     }
 
     next(index: number) {
         this.actualSlide = (index + 1);
         this.fullpage_api.moveSectionDown();
+        this.verify();
+    }
+
+    verify() {
         if (this.isModal()) {
             this.openModal(this.content);
-        };
+        } else if (this.isLoading()) {
+            setTimeout(() => this.next(this.actualSlide), 2000);
+        }
     }
 
     exit() {
@@ -229,19 +239,23 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
         return (this.render[this.actualSlide].type === 'modal');
     }
 
+    isLoading() {
+        return (this.render[this.actualSlide].type === 'loading');
+    }
+
     sexOptionResult(value: boolean) {
         this.form.sex = value;
     }
 
     openModal(content) {
-        this.modalService.open(content, { size: 'lg', centered: true, backdrop: 'static' }).result.then((result) => {
+        this.modalService.open(content).result.then((result) => {
             if (result) {
                 this.next(this.actualSlide);
             } else if (!result) {
                 this.back(this.actualSlide);
             }
         }, () => {
-            this.back(this.actualSlide);
+            // this.back(this.actualSlide);
         });
     }
 

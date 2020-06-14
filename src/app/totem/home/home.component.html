@@ -1,6 +1,43 @@
+
+<ng-template #content let-modal *ngIf="isModal()">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">para a segurança
+            dos seus dados a CCR </h4>
+    </div>
+    <div class="modal-body">
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+            has been the industry's standard dummy text ever since the 1500s, when an unknown
+            printer took a galley of type and scrambled it to make a type specimen book. It has
+            survived not only five centuries, but also the leap into electronic typesetting, remaining
+            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+            containing Lorem Ipsum passages, and more recently with desktop publishing software
+            like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy
+            text of the printing and typesetting industry. Lorem Ipsum has been the industry's standa
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-raised btn-warning btn-lg text-dark mr-auto"
+            (click)="modal.close(false)">Não concordo</button>
+        <button type="button" class="btn btn-raised btn-warning btn-lg text-dark ml-auto"
+            (click)="modal.close(true)">Concordo</button>
+    </div>
+</ng-template>
 <div fullpage id="fullpage" [options]="config" (ref)="getRef($event)" #fullpageRef>
     <div class="section bg-primary" *ngFor="let item of render; let i = index;">
-        <div class="container"  *ngIf="!isModal()">
+        <div class="container" *ngIf="isLoading()">
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border text-light" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <h2 class="mt-5 text-white">
+                Parabéns por iniciar sua jornada pela saúde!
+                Só um momento, estamos criando
+                seu perfil para sua segurança…
+            </h2>
+        </div>
+        <div class="container" *ngIf="!isModal() && !isLoading()">
             <div class="row">
                 <div class="col-md-8">
                     <div class="row">
@@ -48,7 +85,7 @@
             </div>
         </div>
 
-        <div class="container mt-5" *ngIf="!isModal()">
+        <div class="container mt-5" *ngIf="!isModal() && !isLoading()">
             <div class="row mt-5">
                 <div class="col-12 mt-5">
                     <button type="button" (click)="exit()"
@@ -62,25 +99,3 @@
         </div>
     </div>
 </div>
-<ng-template #content let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">para a segurança
-            dos seus dados a CCR </h4>
-    </div>
-    <div class="modal-body">
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the industry's standard dummy text ever since the 1500s, when an unknown
-            printer took a galley of type and scrambled it to make a type specimen book. It has
-            survived not only five centuries, but also the leap into electronic typesetting, remaining
-            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-            containing Lorem Ipsum passages, and more recently with desktop publishing software
-            like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy
-            text of the printing and typesetting industry. Lorem Ipsum has been the industry's standa
-        </p>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-raised btn-warning btn-lg text-dark mr-auto" (click)="modal.close(false)">Não concordo</button>
-        <button type="button" class="btn btn-raised btn-warning btn-lg text-dark ml-auto" (click)="modal.close(true)">Concordo</button>
-    </div>
-</ng-template>
