@@ -79,4 +79,9 @@
     .hg-theme-default {
         background-color: transparent;
     }
+
+    .hg-theme-default.hg-layout-numeric .hg-button {
+        min-width: 11vw !important;
+        max-width: 11vw !important;
+    }
 }

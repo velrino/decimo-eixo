@@ -64,7 +64,7 @@ export class TotemHomeComponent implements OnInit {
     shazam() {
         console.log("SSSAS")
         this.keyboard = new Keyboard({
-            layout: this.keyboardLayouts.default,
+            layout: this.keyboardLayouts.numeric,
             disableRowButtonContainers: false,
             display: {
                 '{bksp}': `<i class='fas fa-backspace'></i>`,
