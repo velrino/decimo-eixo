@@ -1,5 +1,5 @@
 
-<ng-template #content let-modal *ngIf="isModal()">
+<ng-template #content let-modal>
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">para a segurança
             dos seus dados a CCR </h4>
@@ -59,25 +59,32 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mt-5" *ngIf="hasItemType(item.type, 'sex-option')">
-                            <div class="card text-center" (click)="sexOptionResult(true)"
-                                [ngClass]="{'bg-success text-white': form.sex === true}">
+                            <div class="card text-center card-option" (click)="sexOptionResult(true)"
+                                [ngClass]="{'bg-white text-dark card-selected': form.sex === true}">
                                 <div class="card-body">
-                                    <h3>masculino</h3>
+                                    <h3><i class="fas fa-male icon-lg-size"></i></h3>
                                 </div>
+                                <div class="card-footer text-dark border-0">
+                                    <h3>masculino</h3>
+                                  </div>
+                                
                             </div>
                         </div>
                         <div class="col-lg-6 mt-5" *ngIf="hasItemType(item.type, 'sex-option')">
-                            <div class="card text-center" (click)="sexOptionResult(false)"
-                                [ngClass]="{'bg-success text-white': form.sex === false}">
+                            <div class="card text-center card-option" (click)="sexOptionResult(false)"
+                                [ngClass]="{'bg-white text-dark card-selected': form.sex === false}">
                                 <div class="card-body">
-                                    <h3>feminino</h3>
+                                    <h3><i class="fas fa-female icon-lg-size"></i></h3>
                                 </div>
+                                <div class="card-footer text-dark border-0">
+                                    <h3>feminino</h3>
+                                  </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
-                <div class="col-md-3 mt-5 ml-5">
+                <div class="col-md-3 mt-5 ml-5" *ngIf="item.img || item.text">
 
                     <div class="card">
                         <div class="card-header bg-danger">
@@ -86,7 +93,7 @@
                         <div class="card-body">
                           <p class="card-text">{{item.text}}</p>
                         </div>
-                        <img class="card-img-top" [src]="item.img">
+                        <img class="card-img-top p-2" [src]="item.img">
                       </div>
 
                 </div>
@@ -99,7 +106,7 @@
                     <button type="button" (click)="exit()"
                         class="btn bg-white btn-outline-danger btn-lg float-left font-weight-bold">Sair</button>
                     <button type="button" (click)="next(i)"
-                        class="btn btn-raised btn-warning btn-lg text-dark float-right ml-3">Avançar</button>
+                        class="btn btn-raised btn-warning btn-lg text-dark float-right ml-3">Continuar</button>
                     <button type="button" *ngIf="hasBack(i)" (click)="back(i)"
                         class="btn btn-raised btn-dark btn-lg text-white float-right">Voltar</button>
                 </div>

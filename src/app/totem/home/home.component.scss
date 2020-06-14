@@ -1,31 +1,7 @@
 ::ng-deep {
-    ::-webkit-input-placeholder {
-        /* WebKit, Blink, Edge */
-        color: #000 !important;
-    }
-    :-moz-placeholder {
-        /* Mozilla Firefox 4 to 18 */
-        color: #000 !important;
-        opacity: 1;
-    }
-    ::-moz-placeholder {
-        /* Mozilla Firefox 19+ */
-        color: #000 !important;
-        opacity: 1;
-    }
-    :-ms-input-placeholder {
-        /* Internet Explorer 10-11 */
-        color: #000 !important;
-    }
-    ::-ms-input-placeholder {
-        /* Microsoft Edge */
-        color: #000 !important;
-    }
-
     ::placeholder {
         /* Most modern browsers support this now. */
-        color: #000 !important;
-        font-size: 30px !important;
+        font-size: 60px !important;
     }
 
     label {
@@ -113,8 +89,21 @@
     }
 
     .card {
-        border-radius: 16px !important;
+        // border-radius: 16px !important;
         border: solid 2px #9e260d;
         background-color: #ffffff;
+    }
+
+    .card-selected {
+        border: solid 11px #fbc300;
+    }
+
+    .card-option {
+        min-height: 30vh;
+        max-height: 30vh;
+    }
+
+    .icon-lg-size {
+        font-size: 8.75rem;
     }
 }
