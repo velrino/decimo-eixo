@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import Keyboard from "simple-keyboard";
 
 @Component({
@@ -6,7 +6,7 @@ import Keyboard from "simple-keyboard";
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss']
 })
-export class TotemHomeComponent implements OnInit {
+export class TotemHomeComponent implements OnInit, AfterViewInit{
     @ViewChild('fullpageRef') fp_directive: ElementRef;
     config;
     fullpage_api;
@@ -22,18 +22,6 @@ export class TotemHomeComponent implements OnInit {
         imc: null,
         temperature: null,
         evaluation: null,
-    }
-    
-    constructor() {
-        this.config = {
-            licenseKey: 'YOUR LICENSE KEY HERE',
-            // anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
-            menu: '#menu',
-            navigation: false,
-        };
-    }
-
-    ngOnInit() {
     }
 
     keyboardLayouts = {
@@ -61,25 +49,63 @@ export class TotemHomeComponent implements OnInit {
         }
     }
 
-    shazam() {
-        console.log("SSSAS")
-        this.keyboard = new Keyboard({
+    render = [
+        {
+            title: 'qual é o número do seu CPF?',
+            subTitle: 'pedimos esse dado para que suas informações de saúde sejam armazenadas com segurança nos sistemas da CCR.',
+            input: 'document',
+            img: '/assets/imgs/cnh.jpg',
+            text: 'você pode achar o número na sua carteira de motorista :)',
             layout: this.keyboardLayouts.numeric,
-            disableRowButtonContainers: false,
+            keyboard: null
+        },
+        {
+            title: 'qual é o número do seu dssd?',
+            subTitle: 'pedimos esse dado para que suas informações de saúde sejam armazenadas com segurança nos sistemas da CCR.',
+            input: 'name',
+            text: 'você pode achar o número na sua carteira de motorista :)',
+            layout: this.keyboardLayouts.default,
+            keyboard: null
+        }
+    ]
+    constructor() {
+        this.config = {
+            licenseKey: 'YOUR LICENSE KEY HERE',
+            // anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+            menu: '#menu',
+            navigation: false,
+        };
+    }
+
+    ngOnInit() { }
+    
+    ngAfterViewInit() {
+        for (let index = 0; index < this.render.length; index++) {
+            const element = this.render[index];
+            this.enableKeyboard(element.input, element.layout);
+        }
+    }
+
+    enableKeyboard(inputName: string, layout: any) {
+        new Keyboard(`.keyboard-${inputName}`, {
+            layout,
+            syncInstanceInputs: true,
+            inputName,
             display: {
                 '{bksp}': `<i class='fas fa-backspace'></i>`,
                 '{space}': 'espaço',
                 '{shift}': '<i class="fas fa-arrow-up"></i>',
             },
-            onChange: input => this.onChange(input),
+            onChange: input => this.onChange(inputName, input),
             onKeyPress: button => this.onKeyPress(button)
         });
     }
     value: any;
 
-    onChange = (input: string) => {
-        this.value = input;
-        console.log(this.value);
+    onChange = (inputName: string, input: string) => {
+        if (this.form.hasOwnProperty(inputName)) {
+            this.form[inputName] = input;
+        }
     };
 
     onKeyPress = (button: string) => {
@@ -99,6 +125,7 @@ export class TotemHomeComponent implements OnInit {
     };
 
     next() {
+        this.keyboard = null;
         this.fullpage_api.moveSectionDown();
     }
 

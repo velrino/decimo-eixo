@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import { CommonModule} from '@angular/common';
 import { AngularFullpageModule } from '@fullpage/angular-fullpage';
 
 import { TotemRouting, TotemComponents } from './totem.routing';
@@ -8,7 +8,8 @@ import { TotemRouting, TotemComponents } from './totem.routing';
     declarations: TotemComponents,
     imports: [
         TotemRouting,
-        AngularFullpageModule
+        AngularFullpageModule,
+        CommonModule
     ],
     providers: [],
     bootstrap: TotemComponents

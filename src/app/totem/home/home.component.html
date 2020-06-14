@@ -1,16 +1,15 @@
 <div fullpage id="fullpage" [options]="config" (ref)="getRef($event)" #fullpageRef>
-    <div class="section bg-primary">
+    <div class="section bg-primary" *ngFor="let item of render; let i = index;">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="text-white font-weight-bold">qual é o número do seu CPF?</h1>
-                            <h4 class="text-light">pedimos esse dado para que suas informações de saúde
-                                sejam armazenadas com segurança nos sistemas da CCR.</h4>
+                            <h1 class="text-white font-weight-bold">{{ item.title }}</h1>
+                            <h4 class="text-light">{{ item.subTitle }}</h4>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" (keydown)="$event.preventDefault();"
-                                    (focus)="shazam()" value="{{value}}">
+                                <input type="text" id="{{item.input}}" class="form-control"
+                                    (keydown)="$event.preventDefault();" value="{{form[item.input]}}">
                                 <div class="input-group-append">
                                     <button class="btn btn-secondary" type="button"><i
                                             class="fas fa-backspace fa-lg"></i></button>
@@ -18,26 +17,26 @@
                             </div>
                         </div>
                         <div class="col-lg-12">
-                            <div class="simple-keyboard"></div>
+                            <div class="simple-keyboard keyboard-{{item.input}}"></div>
+
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 mt-5 ml-5">
-                    <img src="/assets/imgs/cnh.jpg">
-                    <h5 class="text-white mt-5">você pode achar o número na sua
-                        carteira de motorista :)</h5>
+                    <img [src]="item.img">
+                    <h5 class="text-white mt-5">{{item.text}}</h5>
 
                 </div>
             </div>
         </div>
 
-        <div class="container">
+        <!-- <div class="container">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="simple-keyboard"></div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="container mt-5">
             <div class="row mt-5">
@@ -49,88 +48,6 @@
                     <button type="button" (click)="next()"
                         class="btn btn-raised btn-warning btn-lg text-dark float-right">Voltar</button>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="section bg-primary">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 mb-5">
-                    <h1 class="text-white">qual é o seu nome ?</h1>
-                    <h5 class="text-light">(não precisa ser completo)</h5>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" (focus)="shazam()" value="{{value}}">
-                        <div class="input-group-append">
-                            <button class="btn btn-secondary" type="button"><i
-                                    class="fas fa-backspace fa-lg"></i></button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-3 mt-5 ml-5">
-                    <h3 class="text-white mt-5">vamos usá-lo pra
-                        compartilhar as
-                        informações da sua
-                        saúde e consultas
-                        conosco da CCR.</h3>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="simple-keyboard"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container mt-5">
-            <div class="row mt-5">
-                <div class="col-12 mt-5">
-                    <button type="button" (click)="next()"
-                        class="btn btn-raised btn-danger btn-lg float-left">Sair</button>
-                    <button type="button" (click)="next()"
-                        class="btn btn-raised btn-warning btn-lg text-dark float-right ml-3">Avançar</button>
-                    <button type="button" (click)="next()"
-                        class="btn btn-raised btn-warning btn-lg text-dark float-right">Voltar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="section bg-primary">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <!-- <label for="exampleInputEmail1">Qual o seu CPF?</label> -->
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="TESTE">
-                    <!-- <small id="emailHelp" class="form-text text-white">We'll never share your email with anyone
-                        else.</small> -->
-                </div>
-                <div>
-                    <button (click)="next()">Move to second page</button>
-                    <!-- <button type="button" (click)="fullpageService.moveSectionDown()" class="btn btn-raised btn-warning text-dark">Avançar</button> -->
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="section bg-primary">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <!-- <label for="exampleInputEmail1">Qual o seu CPF?</label> -->
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="LOREM IPSUM">
-                    <!-- <small id="emailHelp" class="form-text text-white">We'll never share your email with anyone
-                        else.</small> -->
-                </div>
-                <div>
-                    <button type="button" class="btn btn-raised btn-warning text-dark">Avançar</button>
-                </div>
-
             </div>
         </div>
     </div>
