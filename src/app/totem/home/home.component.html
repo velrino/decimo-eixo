@@ -78,8 +78,8 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-lg-12" *ngIf="hasItemType(item.type, 'keyboard') || hasItemType(item.type, 'content-loading')">
-                            <h1 class="text-danger"  [innerHTML]="item.title"></h1>
+                        <div class="col-lg-12" *ngIf="hasContent(item)">
+                            <h1 class="text-danger" [innerHTML]="item.title"></h1>
                             <h4 class="text-dark">{{ item.subTitle }}</h4>
                             <div class="input-group mb-3" *ngIf="hasItemType(item.type, 'keyboard')">
                                 <input type="text" id="{{item.input}}" class="form-control"
@@ -102,10 +102,34 @@
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="p-2 bd-highlight text-left"><h3 class="font-weight-bold">aguarde… fazendo medição</h3></div>
-                              </div>
+                                <div class="p-2 bd-highlight text-left">
+                                    <h3 class="font-weight-bold">aguarde… fazendo medição</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-5" *ngIf="hasItemType(item.type, 'content-result')">
+                            <h3><strong>79,4</strong> quilos</h3>
+                            <h3>IMC de <strong>26,55</strong></h3>
+                            <h4 class="font-weight-bold text-warning">você está acima do peso ideal.</h4>
+                            <div class="d-flex align-items-center mt-5">
+                                <div class="p-2 bd-highlight text-left">
+                                    <img [src]="item.result_img">
+                                </div>
+                                <div class="p-2 bd-highlight text-left">
+                                    Para ajudar a perder peso, procure deixar seu prato de refeição mais balanceado:
 
-                            
+                                    <dl class="row mt-2">
+                                        <dt class="col-sm-1"><i class="fas fa-arrow-circle-right"></i></dt>
+                                        <dd class="col-sm-11">metade de verduras e legumes</dd>
+
+                                        <dt class="col-sm-1"><i class="fas fa-arrow-circle-right"></i></dt>
+                                        <dd class="col-sm-11">1/4 de proteínas como carne e ovos</dd>
+
+                                        <dt class="col-sm-1"><i class="fas fa-arrow-circle-right"></i></dt>
+                                        <dd class="col-sm-11">1/4 de carboidratos como arroz, macarrão e batata</dd>
+                                    </dl>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-6 mt-5" *ngIf="hasItemType(item.type, 'sex-option')">
                             <div class="card text-center card-option" (click)="sexOptionResult(true)"
@@ -136,8 +160,8 @@
                 <div class="col-md-3 mt-5 ml-5">
 
                     <div class="card" *ngIf="item.img || item.text">
-                        <div class="card-header bg-danger">
-                            LEMBRE-SE
+                        <div class="card-header bg-danger text-uppercase">
+                            {{item.card_title}}
                         </div>
                         <div class="card-body">
                             <p class="card-text">{{item.text}}</p>

@@ -57,10 +57,24 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     modalTitle = '';
     render = [
         {
+            title: 'Seu resultado de <strong>peso</strong> e <strong>IMC</strong>',
+            subTitle: null,
+            input: 'content-result-imc',
+            img: '/assets/imgs/caminhando.png',
+            result_img: '/assets/imgs/prato.png',
+            card_title: 'dica de saúde',
+            text: 'Procure caminhar ao menos 30 minutos por dia para alcançar o peso ideal e reduzir riscos de doenças do coração.',
+            layout: this.keyboardLayouts.numeric,
+            keyboard: null,
+            type: 'content-result',
+            placeholder: '123.456.789-00',
+        },
+        {
             title: '<strong>Qual é o número do seu CPF?</strong>',
             subTitle: 'Pedimos esse dado para que suas informações de saúde sejam armazenadas com segurança nos sistemas da CCR.',
             input: 'document',
             img: '/assets/imgs/carteirinha@3x.jpg',
+            card_title: 'LEMBRE-SE',
             text: 'você pode achar o número na sua carteira de motorista :)',
             layout: this.keyboardLayouts.numeric,
             keyboard: null,
@@ -304,5 +318,11 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
 
     hideModal() {
         this.modalService.dismissAll();
+    }
+
+    hasContent(item) {
+        return this.hasItemType(item.type, 'keyboard') || 
+        this.hasItemType(item.type, 'content-result') || 
+        this.hasItemType(item.type, 'content-loading');
     }
 }
