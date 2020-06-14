@@ -11,7 +11,19 @@ export class TotemHomeComponent implements OnInit {
     config;
     fullpage_api;
     keyboard: Keyboard;
-
+    form = {
+        document: null,
+        name: null,
+        birth: null,
+        sex: null,
+        agree: null,
+        height: null,
+        weight: null,
+        imc: null,
+        temperature: null,
+        evaluation: null,
+    }
+    
     constructor() {
         this.config = {
             licenseKey: 'YOUR LICENSE KEY HERE',
