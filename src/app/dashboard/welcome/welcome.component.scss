@@ -1,1 +1,9 @@
 @import "../dashboard.style.scss";
+
+.header {
+    min-height: 150px;
+    max-height: 150px;
+    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 24px;
+    background-color: #9e260d !important;
+}

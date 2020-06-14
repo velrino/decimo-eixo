@@ -1,1 +1,50 @@
-welcome
+<div class="container p-0">
+    <div class="row justify-content-md-center">
+
+        <div class="col-md-auto col-lg-6">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="container header text-white">
+                        <div class="pt-5">
+                            <h6>Bem-vindo,</h6>
+                            <h5 class="font-weight-bold">Jorge Luís dos Santos</h5>
+                            <h6>CPF: 123.456.789-00</h6>
+                        </div>
+                    </div>
+                    <div class="container mb-5">
+                        <div class="text-center mt-5">
+                            <img src="/assets/imgs/ilustra-medicos.png" class="text-center">
+                        </div>
+                        <h5 class="mt-5 font-weight-bold">
+                            Complete seu perfil para receber atendimentos mais personalizados
+                        </h5>
+                        <button type="button" class="btn btn-raised btn-warning btn-block text-dark rounded mt-3"
+                            [routerLink]="['/dashboard/login']">antecedentes pessoais</button>
+                        <button type="button" class="btn btn-raised btn-warning btn-block text-dark rounded"
+                            [routerLink]="['/dashboard/login']">bem-estar mental</button>
+                        <h5 class="mt-5 font-weight-bold">
+                            Próximos agendamentos
+                        </h5>
+                        <div class="card mt-5 mb-5">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item border-bottom">
+                                    <h6>Teleconsulta com psicólogo</h6>
+                                    <small>quinta-feira 18/06 às 23:00</small>
+                                </li>
+                                <li class="list-group-item">
+                                    <h6>Teleconsulta com nutricionista</h6>
+                                    <small>sexta-feira 19/06 às 11:00</small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
