@@ -1,18 +1,23 @@
-<div mnFullpage class="text-white">
+<div fullpage id="fullpage" [options]="config" (ref)="getRef($event)" #fullpageRef>
     <div class="section bg-primary">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <!-- <label for="exampleInputEmail1">Qual o seu CPF?</label> -->
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Qual o seu CPF?">
-                    <!-- <small id="emailHelp" class="form-text text-white">We'll never share your email with anyone
-                        else.</small> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="cpf" aria-describedby="CPF"
+                            placeholder="Qual o seu CPF?">
+                    </div>
                 </div>
-                <div>
-                    <button type="button" class="btn btn-raised btn-warning text-dark">Avançar</button>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12">
+                    <div class="float-right">
+                        <button type="button" (click)="teste()"
+                            class="btn btn-raised btn-warning btn-lg text-dark">Avançar</button>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -27,7 +32,8 @@
                         else.</small> -->
                 </div>
                 <div>
-                    <button type="button" class="btn btn-raised btn-warning text-dark">Avançar</button>
+                    <button (click)="teste()">Move to second page</button>
+                    <!-- <button type="button" (click)="fullpageService.moveSectionDown()" class="btn btn-raised btn-warning text-dark">Avançar</button> -->
                 </div>
 
             </div>
