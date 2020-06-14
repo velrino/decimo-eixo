@@ -1,8 +1,6 @@
-
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">para a segurança
-            dos seus dados a CCR </h4>
+        <h4 class="modal-title" id="modal-basic-title" [innerHTML]="modalTitle"></h4>
     </div>
     <div class="modal-body">
         <p>
@@ -15,9 +13,39 @@
             like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy
             text of the printing and typesetting industry. Lorem Ipsum has been the industry's standa
         </p>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+            has been the industry's standard dummy text ever since the 1500s, when an unknown
+            printer took a galley of type and scrambled it to make a type specimen book. It has
+            survived not only five centuries, but also the leap into electronic typesetting, remaining
+            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+            containing Lorem Ipsum passages, and more recently with desktop publishing software
+            like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy
+            text of the printing and typesetting industry. Lorem Ipsum has been the industry's standa
+        </p>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+            has been the industry's standard dummy text ever since the 1500s, when an unknown
+            printer took a galley of type and scrambled it to make a type specimen book. It has
+            survived not only five centuries, but also the leap into electronic typesetting, remaining
+            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+            containing Lorem Ipsum passages, and more recently with desktop publishing software
+            like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy
+            text of the printing and typesetting industry. Lorem Ipsum has been the industry's standa
+        </p>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+            has been the industry's standard dummy text ever since the 1500s, when an unknown
+            printer took a galley of type and scrambled it to make a type specimen book. It has
+            survived not only five centuries, but also the leap into electronic typesetting, remaining
+            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+            containing Lorem Ipsum passages, and more recently with desktop publishing software
+            like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy
+            text of the printing and typesetting industry. Lorem Ipsum has been the industry's standa
+        </p>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-raised btn-warning btn-lg text-dark mr-auto"
+        <button type="button" class="btn btn-raised btn-dark btn-lg text-white mr-auto"
             (click)="modal.close(false)">Não concordo</button>
         <button type="button" class="btn btn-raised btn-warning btn-lg text-dark ml-auto"
             (click)="modal.close(true)">Concordo</button>
@@ -66,8 +94,8 @@
                                 </div>
                                 <div class="card-footer text-dark border-0">
                                     <h3>masculino</h3>
-                                  </div>
-                                
+                                </div>
+
                             </div>
                         </div>
                         <div class="col-lg-6 mt-5" *ngIf="hasItemType(item.type, 'sex-option')">
@@ -78,7 +106,7 @@
                                 </div>
                                 <div class="card-footer text-dark border-0">
                                     <h3>feminino</h3>
-                                  </div>
+                                </div>
                             </div>
                         </div>
 
@@ -88,13 +116,13 @@
 
                     <div class="card">
                         <div class="card-header bg-danger">
-                          LEMBRE-SE
+                            LEMBRE-SE
                         </div>
                         <div class="card-body">
-                          <p class="card-text">{{item.text}}</p>
+                            <p class="card-text">{{item.text}}</p>
                         </div>
                         <img class="card-img-top p-2" [src]="item.img">
-                      </div>
+                    </div>
 
                 </div>
             </div>

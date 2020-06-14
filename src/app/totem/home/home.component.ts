@@ -54,7 +54,7 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
             ],
         }
     }
-
+    modalTitle = '';
     render = [
         {
             title: '<strong>Qual é o número do seu CPF?</strong>',
@@ -141,7 +141,7 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
         };
     }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     ngAfterViewInit() {
         for (let index = 0; index < this.render.length; index++) {
@@ -172,6 +172,7 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
         if (this.form.hasOwnProperty(inputName)) {
             this.form[inputName] = input;
             if (inputName == 'name') {
+                this.modalTitle = `<strong>${input}</strong>, confira os termos e condições para a segurança dos seus dados com a CCR`;
                 const searchSting = 'height';
                 this.render.forEach((item, index) => {
                     if (item.input === searchSting) {
@@ -248,7 +249,7 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     }
 
     openModal(content) {
-        this.modalService.open(content).result.then((result) => {
+        this.modalService.open(content, { backdrop: 'static', centered: true, size: 'xl', backdropClass: 'bg-dark', scrollable: true }).result.then((result) => {
             if (result) {
                 this.next(this.actualSlide);
             } else if (!result) {
