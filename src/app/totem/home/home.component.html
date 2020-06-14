@@ -131,6 +131,10 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-12 mt-5" *ngIf="hasItemType(item.type, 'content-result-temperature')">
+                            <h3><strong>36,5°</strong></h3>
+                            <h4 class="font-weight-bold text-success">Sua temperatura está boa</h4>
+                        </div>
                         <div class="col-lg-6 mt-5" *ngIf="hasItemType(item.type, 'sex-option')">
                             <div class="card text-center card-option" (click)="sexOptionResult(true)"
                                 [ngClass]="{'bg-white text-dark card-selected': form.sex === true}">
@@ -175,7 +179,7 @@
             </div>
         </div>
 
-        <div class="container mt-5" *ngIf="!isModal() && !isLoading()">
+        <div class="container mt-5" *ngIf="!isModal() && !isLoading() && !isLoadingContent()">
             <div class="row mt-5">
                 <div class="col-12 mt-5">
                     <button type="button" (click)="exit()"

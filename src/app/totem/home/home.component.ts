@@ -171,6 +171,30 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
             placeholder: null,
         },
         {
+            title: 'Analisando sua temperatura',
+            subTitle: 'Só um momento, enquanto analisamos sua temperatura',
+            input: 'loading',
+            icon: 'spinner-border text-dark',
+            img: null,
+            text: null,
+            layout: null,
+            keyboard: null,
+            placeholder: '',
+            type: 'loading',
+        },
+        {
+            title: 'Seu resultado de <strong>temperatura</strong>',
+            subTitle: null,
+            input: 'content-result-temperature',
+            img: '/assets/imgs/water.png',
+            card_title: 'dica de saúde',
+            text: 'Beba bastante água no seu dia-a-dia ajuda a manter a temperatura do seu corpo sempre ideal.',
+            layout: this.keyboardLayouts.numeric,
+            keyboard: null,
+            type: 'content-result-temperature',
+            placeholder: null,
+        },
+        {
             title: null,
             subTitle: '',
             input: 'nps',
@@ -265,7 +289,7 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     verify() {
         if (this.isModal()) {
             this.openModal(this.content);
-        } else if (this.isLoading()) {
+        } else if (this.isLoading() || this.isLoadingContent()) {
             setTimeout(() => this.next(this.actualSlide), 2000);
         } else {
             this.keyboads();
@@ -297,7 +321,13 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     }
 
     isLoading() {
+        const { type } = this.render[this.actualSlide];
         return (this.render[this.actualSlide].type === 'loading');
+    }
+
+    isLoadingContent() {
+        const { type } = this.render[this.actualSlide];
+        return (this.render[this.actualSlide].type === 'content-loading');
     }
 
     sexOptionResult(value: boolean) {
@@ -321,8 +351,9 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     }
 
     hasContent(item) {
-        return this.hasItemType(item.type, 'keyboard') || 
-        this.hasItemType(item.type, 'content-result') || 
-        this.hasItemType(item.type, 'content-loading');
+        return this.hasItemType(item.type, 'keyboard') ||
+            this.hasItemType(item.type, 'content-result') ||
+            this.hasItemType(item.type, 'content-result-temperature') ||
+            this.hasItemType(item.type, 'content-loading');
     }
 }
