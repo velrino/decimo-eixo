@@ -9,7 +9,7 @@ import { TotemRouting, TotemComponents } from './totem.routing';
     imports: [
         TotemRouting,
         AngularFullpageModule,
-        CommonModule
+        CommonModule,
     ],
     providers: [],
     bootstrap: TotemComponents
