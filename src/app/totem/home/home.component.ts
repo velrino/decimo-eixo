@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import Keyboard from "simple-keyboard";
 
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
     selector: 'app-totem-home',
     templateUrl: './home.component.html',
@@ -8,9 +10,13 @@ import Keyboard from "simple-keyboard";
 })
 export class TotemHomeComponent implements OnInit, AfterViewInit {
     @ViewChild('fullpageRef') fp_directive: ElementRef;
+    @ViewChild('content') content: any;
     config;
     fullpage_api;
     keyboard: Keyboard;
+    modalRef: NgbModal;
+    actualSlide: number = 0;
+
     form = {
         document: null,
         name: null,
@@ -94,6 +100,17 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
             type: 'sex-option',
         },
         {
+            title: null,
+            subTitle: '',
+            input: 'agree',
+            img: null,
+            text: null,
+            layout: null,
+            keyboard: null,
+            placeholder: '',
+            type: 'modal',
+        },
+        {
             title: 'Precisamos saber sua altura aproximada em metros.',
             subTitle: '',
             input: 'height',
@@ -105,7 +122,7 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
             type: 'keyboard',
         }
     ]
-    constructor() {
+    constructor(private modalService: NgbModal) {
         this.config = {
             licenseKey: 'YOUR LICENSE KEY HERE',
             // anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
@@ -114,7 +131,8 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
         };
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+    }
 
     ngAfterViewInit() {
         for (let index = 0; index < this.render.length; index++) {
@@ -171,12 +189,24 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
         });
     };
 
-    back() {
+    back(index: number) {
+        this.actualSlide = (index - 1);
         this.fullpage_api.moveSectionUp();
+        if (this.isModal()) {
+            this.openModal(this.content);
+        };
     }
 
-    next() {
+    next(index: number) {
+        this.actualSlide = (index + 1);
         this.fullpage_api.moveSectionDown();
+        if (this.isModal()) {
+            this.openModal(this.content);
+        };
+    }
+
+    exit() {
+
     }
 
     getRef(fullPageRef: any) {
@@ -195,7 +225,27 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
         return type === result;
     }
 
+    isModal() {
+        return (this.render[this.actualSlide].type === 'modal');
+    }
+
     sexOptionResult(value: boolean) {
         this.form.sex = value;
+    }
+
+    openModal(content) {
+        this.modalService.open(content, { size: 'lg', centered: true, backdrop: 'static' }).result.then((result) => {
+            if (result) {
+                this.next(this.actualSlide);
+            } else if (!result) {
+                this.back(this.actualSlide);
+            }
+        }, () => {
+            this.back(this.actualSlide);
+        });
+    }
+
+    hideModal() {
+        this.modalService.dismissAll();
     }
 }
