@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'app-totem-home',
@@ -10,25 +10,23 @@ export class TotemHomeComponent implements OnInit {
     config;
     fullpage_api;
 
-    constructor(private renderer: Renderer2) {
-
-        // this is just an example => for more details on config please visit fullPage.js docs
+    constructor() {
         this.config = {
             licenseKey: 'YOUR LICENSE KEY HERE',
-            anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+            // anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
             menu: '#menu',
-            navigation: true,
+            navigation: false,
         };
     }
 
     ngOnInit() {
     }
 
-    teste() {
+    next() {
         this.fullpage_api.moveSectionDown();
     }
 
-    getRef(fullPageRef) {
+    getRef(fullPageRef: any) {
         this.fullpage_api = fullPageRef;
     }
 

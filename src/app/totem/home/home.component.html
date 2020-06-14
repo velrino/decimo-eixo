@@ -2,21 +2,37 @@
     <div class="section bg-primary">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="cpf" aria-describedby="CPF"
-                            placeholder="Qual o seu CPF?">
+                <div class="col-md-8 mb-5">
+                    <h1 class="text-white">qual é o seu nome ?</h1>
+                    <h5 class="text-light">(não precisa ser completo)</h5>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button"><i
+                                    class="fas fa-backspace fa-lg"></i></button>
+                        </div>
                     </div>
+
+                </div>
+                <div class="col-md-3 mt-5 ml-5">
+                    <h3 class="text-white mt-5">vamos usá-lo pra
+                        compartilhar as
+                        informações da sua
+                        saúde e consultas
+                        conosco da CCR.</h3>
+
                 </div>
             </div>
         </div>
         <div class="container mt-5">
-            <div class="row">
-                <div class="col-12">
-                    <div class="float-right">
-                        <button type="button" (click)="teste()"
-                            class="btn btn-raised btn-warning btn-lg text-dark">Avançar</button>
-                    </div>
+            <div class="row mt-5">
+                <div class="col-12 mt-5">
+                    <button type="button" (click)="next()"
+                        class="btn btn-raised btn-danger btn-lg float-left">Sair</button>
+                    <button type="button" (click)="next()"
+                        class="btn btn-raised btn-warning btn-lg text-dark float-right ml-3">Avançar</button>
+                    <button type="button" (click)="next()"
+                        class="btn btn-raised btn-warning btn-lg text-dark float-right">Voltar</button>
                 </div>
             </div>
         </div>
@@ -32,7 +48,7 @@
                         else.</small> -->
                 </div>
                 <div>
-                    <button (click)="teste()">Move to second page</button>
+                    <button (click)="next()">Move to second page</button>
                     <!-- <button type="button" (click)="fullpageService.moveSectionDown()" class="btn btn-raised btn-warning text-dark">Avançar</button> -->
                 </div>
 
