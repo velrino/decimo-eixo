@@ -57,19 +57,6 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
     modalTitle = '';
     render = [
         {
-            title: 'Seu resultado de <strong>peso</strong> e <strong>IMC</strong>',
-            subTitle: null,
-            input: 'content-result-imc',
-            img: '/assets/imgs/caminhando.png',
-            result_img: '/assets/imgs/prato.png',
-            card_title: 'dica de saúde',
-            text: 'Procure caminhar ao menos 30 minutos por dia para alcançar o peso ideal e reduzir riscos de doenças do coração.',
-            layout: this.keyboardLayouts.numeric,
-            keyboard: null,
-            type: 'content-result',
-            placeholder: '123.456.789-00',
-        },
-        {
             title: '<strong>Qual é o número do seu CPF?</strong>',
             subTitle: 'Pedimos esse dado para que suas informações de saúde sejam armazenadas com segurança nos sistemas da CCR.',
             input: 'document',
@@ -169,6 +156,19 @@ export class TotemHomeComponent implements OnInit, AfterViewInit {
             layout: null,
             keyboard: null,
             type: 'content-loading',
+        },
+        {
+            title: 'Seu resultado de <strong>peso</strong> e <strong>IMC</strong>',
+            subTitle: null,
+            input: 'content-result-imc',
+            img: '/assets/imgs/caminhando.png',
+            result_img: '/assets/imgs/prato.png',
+            card_title: 'dica de saúde',
+            text: 'Procure caminhar ao menos 30 minutos por dia para alcançar o peso ideal e reduzir riscos de doenças do coração.',
+            layout: this.keyboardLayouts.numeric,
+            keyboard: null,
+            type: 'content-result',
+            placeholder: null,
         },
         {
             title: null,
