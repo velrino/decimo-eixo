@@ -6,7 +6,7 @@ import Keyboard from "simple-keyboard";
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss']
 })
-export class TotemHomeComponent implements OnInit, AfterViewInit{
+export class TotemHomeComponent implements OnInit, AfterViewInit {
     @ViewChild('fullpageRef') fp_directive: ElementRef;
     config;
     fullpage_api;
@@ -57,16 +57,28 @@ export class TotemHomeComponent implements OnInit, AfterViewInit{
             img: '/assets/imgs/cnh.jpg',
             text: 'você pode achar o número na sua carteira de motorista :)',
             layout: this.keyboardLayouts.numeric,
-            keyboard: null
+            keyboard: null,
+            placeholder: '123.456.789-00',
         },
         {
-            title: 'qual é o número do seu dssd?',
-            subTitle: 'pedimos esse dado para que suas informações de saúde sejam armazenadas com segurança nos sistemas da CCR.',
+            title: 'qual é o seu nome?',
+            subTitle: '(não precisa ser completo)',
             input: 'name',
             text: 'você pode achar o número na sua carteira de motorista :)',
             layout: this.keyboardLayouts.default,
-            keyboard: null
-        }
+            keyboard: null,
+            placeholder: '',
+        },
+        {
+            title: 'qual é o sua data de nascimento?',
+            subTitle: '',
+            input: 'birth',
+            img: null,
+            text: null,
+            layout: this.keyboardLayouts.numeric,
+            keyboard: null,
+            placeholder: '',
+        },
     ]
     constructor() {
         this.config = {
@@ -78,7 +90,7 @@ export class TotemHomeComponent implements OnInit, AfterViewInit{
     }
 
     ngOnInit() { }
-    
+
     ngAfterViewInit() {
         for (let index = 0; index < this.render.length; index++) {
             const element = this.render[index];
@@ -124,8 +136,11 @@ export class TotemHomeComponent implements OnInit, AfterViewInit{
         });
     };
 
+    back() {
+        this.fullpage_api.moveSectionUp();
+    }
+
     next() {
-        this.keyboard = null;
         this.fullpage_api.moveSectionDown();
     }
 
@@ -135,5 +150,9 @@ export class TotemHomeComponent implements OnInit, AfterViewInit{
 
     randomColor() {
         return '#' + Math.random().toString(16).slice(-3);
+    }
+
+    hasBack(index: number) {
+        return (index > 0);
     }
 }

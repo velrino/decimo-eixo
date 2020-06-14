@@ -9,7 +9,7 @@
                             <h4 class="text-light">{{ item.subTitle }}</h4>
                             <div class="input-group mb-3">
                                 <input type="text" id="{{item.input}}" class="form-control"
-                                    (keydown)="$event.preventDefault();" value="{{form[item.input]}}">
+                                    (keydown)="$event.preventDefault();" [placeholder]="item.placeholder" value="{{form[item.input]}}">
                                 <div class="input-group-append">
                                     <button class="btn btn-secondary" type="button"><i
                                             class="fas fa-backspace fa-lg"></i></button>
@@ -45,7 +45,7 @@
                         class="btn btn-raised btn-danger btn-lg float-left">Sair</button>
                     <button type="button" (click)="next()"
                         class="btn btn-raised btn-warning btn-lg text-dark float-right ml-3">Avançar</button>
-                    <button type="button" (click)="next()"
+                    <button type="button" *ngIf="hasBack(i)" (click)="back()"
                         class="btn btn-raised btn-warning btn-lg text-dark float-right">Voltar</button>
                 </div>
             </div>
