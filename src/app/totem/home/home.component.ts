@@ -53,6 +53,7 @@ export class TotemHomeComponent implements OnInit {
         console.log("SSSAS")
         this.keyboard = new Keyboard({
             layout: this.keyboardLayouts.default,
+            disableRowButtonContainers: false,
             display: {
                 '{bksp}': `<i class='fas fa-backspace'></i>`,
                 '{space}': 'espaço',
@@ -63,14 +64,13 @@ export class TotemHomeComponent implements OnInit {
         });
     }
     value: any;
+
     onChange = (input: string) => {
         this.value = input;
-        console.log("Input changed", input);
+        console.log(this.value);
     };
 
     onKeyPress = (button: string) => {
-        console.log("Button pressed", button);
-
         /**
          * If you want to handle the shift and caps lock buttons
          */
