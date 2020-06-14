@@ -1,3 +1,4 @@
+<div class="simple-keyboard fixed-bottom"></div>
 <div fullpage id="fullpage" [options]="config" (ref)="getRef($event)" #fullpageRef>
     <div class="section bg-primary">
         <div class="container">
@@ -6,7 +7,7 @@
                     <h1 class="text-white">qual é o seu nome ?</h1>
                     <h5 class="text-light">(não precisa ser completo)</h5>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" (focus)="shazam()">
                         <div class="input-group-append">
                             <button class="btn btn-secondary" type="button"><i
                                     class="fas fa-backspace fa-lg"></i></button>
